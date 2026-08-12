@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AARANYA — Hand-set diamonds & 22K gold</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        serif: ['"Playfair Display"', 'serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+      },
+      colors: {
+        cream: '#f5edd6',
+        creamLight: '#faf5e6',
+        creamDark: '#ede3c6',
+        forest: '#0d5545',
+        forestDark: '#0a4336',
+        ink: '#1a1a1a',
+        muted: '#6b6b6b',
+      },
+    },
+  },
+};
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: #f5edd6; color: #1a1a1a; }
+  .font-serif-i { font-family: 'Playfair Display', serif; font-style: italic; }
+  .eyebrow { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #6b6b6b; font-weight: 500; }
+  .btn-pill {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: #0d5545; color: #f5edd6;
+    padding: 0.85rem 1.6rem; border-radius: 999px;
+    font-size: 13px; letter-spacing: 0.04em; font-weight: 500;
+    transition: background 0.2s ease;
+  }
+  .btn-pill:hover { background: #0a4336; }
+  .heart {
+    width: 28px; height: 28px; display: inline-flex; align-items: center; justify-content: center;
+    background: rgba(255,255,255,0.9); border-radius: 999px;
+    position: absolute; top: 12px; right: 12px;
+    font-size: 13px; color: #1a1a1a;
+    cursor: pointer;
+  }
+  .divider-scallop {
+    height: 32px;
+    background-image: radial-gradient(circle at 16px 0, #f5edd6 16px, transparent 17px);
+    background-size: 32px 32px;
+    background-repeat: repeat-x;
+  }
+  /* subtle card lift */
+  .card-hover { transition: transform 0.35s ease; }
+  .card-hover:hover { transform: translateY(-4px); }
+</style>
+</head>
+<body class="bg-cream text-ink antialiased">
+
+<!-- ============ NAV ============ -->
+<header class="w-full bg-cream/95 backdrop-blur sticky top-0 z-50 border-b border-black/5">
+  <div class="max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
+    <nav class="flex items-center gap-8 text-sm">
+      <a href="#shop" class="hover:opacity-70">Shop</a>
+      <a href="#collections" class="hover:opacity-70">Collections</a>
+      <a href="#about" class="hover:opacity-70">About</a>
+      <a href="#contact" class="hover:opacity-70">Contact</a>
+    </nav>
+    <a href="#" class="font-serif text-2xl tracking-[0.35em] font-medium">AARANYA</a>
+    <div class="flex items-center gap-5 text-ink">
+      <button aria-label="account" class="hover:opacity-70">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/></svg>
+      </button>
+      <button aria-label="wishlist" class="hover:opacity-70">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+      </button>
+      <button aria-label="bag" class="relative hover:opacity-70">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2l-3 6v14a2 2 0 002 2h14a2 2 0 002-2V8l-3-6z"/><line x1="3" y1="8" x2="21" y2="8"/><path d="M16 12a4 4 0 01-8 0"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="relative w-full">
+  <div class="relative w-full h-[86vh] min-h-[560px] max-h-[820px] overflow-hidden">
+    <img src="00-hero-chain.jpg" alt="Gold chain on red silk" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 to-transparent"></div>
+    <div class="relative z-10 max-w-[1400px] mx-auto px-8 h-full flex items-center">
+      <div class="max-w-xl text-cream">
+        <h1 class="font-serif text-[56px] md:text-[72px] leading-[1.02] font-medium tracking-tight">
+          LIGHT, <span class="font-serif-i">RENDERED</span><br />ETERNAL.
+        </h1>
+        <p class="mt-6 text-sm md:text-base text-cream/85 max-w-sm leading-relaxed">
+          Hand-set diamonds and 22K gold,<br />composed by our atelier in Jaipur.
+        </p>
+        <a href="#collections" class="btn-pill mt-8">
+          Discover the Collection
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="relative py-24 md:py-32">
+  <div class="max-w-[1400px] mx-auto px-8">
+    <div class="relative rounded-sm overflow-hidden">
+      <img src="02-hero-bangle-sand-dune.jpg" alt="Emerald kundan bangle on golden sand" class="w-full h-[520px] object-cover" />
+      <!-- Overlay stats -->
+      <div class="absolute inset-0 flex items-center">
+        <div class="w-full grid grid-cols-2 md:grid-cols-4 gap-8 px-10 md:px-16 text-ink">
+          <div>
+            <div class="font-serif text-5xl md:text-6xl font-medium">3.5k</div>
+            <div class="eyebrow mt-2">Unique Jewels</div>
+          </div>
+          <div>
+            <div class="font-serif text-5xl md:text-6xl font-medium">98%</div>
+            <div class="eyebrow mt-2">Satisfaction Rate</div>
+          </div>
+          <div>
+            <div class="font-serif text-5xl md:text-6xl font-medium">49k+</div>
+            <div class="eyebrow mt-2">Happy Customers</div>
+          </div>
+          <div>
+            <div class="font-serif text-5xl md:text-6xl font-medium">1.7k</div>
+            <div class="eyebrow mt-2">Luxury Collections</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOUR MAISONS ============ -->
+<section id="collections" class="py-16 md:py-24">
+  <div class="max-w-[1400px] mx-auto px-8 text-center">
+    <div class="eyebrow">Featured</div>
+    <h2 class="font-serif text-5xl md:text-6xl mt-3 font-medium tracking-tight">
+      Four maisons <span class="font-serif-i">of light.</span>
+    </h2>
+
+    <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6">
+      <!-- Card 1 -->
+      <div class="card-hover">
+        <div class="relative bg-creamLight rounded-sm overflow-hidden aspect-[3/4]">
+          <img src="06-emerald-ring-on-hibiscus.jpg" alt="Emerald Elegance" class="w-full h-full object-cover" />
+          <span class="heart">♡</span>
+        </div>
+        <h3 class="font-serif text-xl mt-4">Emerald Elegance</h3>
+        <p class="text-xs text-muted mt-1 tracking-wide">Emerald &amp; Diamond</p>
+      </div>
+      <!-- Card 2 -->
+      <div class="card-hover">
+        <div class="relative bg-creamLight rounded-sm overflow-hidden aspect-[3/4]">
+          <img src="04-ruby-necklace-on-lotus.jpg" alt="Ruby Radiance" class="w-full h-full object-cover" />
+          <span class="heart">♡</span>
+        </div>
+        <h3 class="font-serif text-xl mt-4">Ruby Radiance</h3>
+        <p class="text-xs text-muted mt-1 tracking-wide">Ruby &amp; Gold</p>
+      </div>
+      <!-- Card 3 -->
+      <div class="card-hover">
+        <div class="relative bg-creamLight rounded-sm overflow-hidden aspect-[3/4]">
+          <img src="08-hand-with-ring.jpg" alt="Diamond Ear Ring" class="w-full h-full object-cover" />
+          <span class="heart">♡</span>
+        </div>
+        <h3 class="font-serif text-xl mt-4">Polki Reverie</h3>
+        <p class="text-xs text-muted mt-1 tracking-wide">Uncut Diamond &amp; Ruby</p>
+      </div>
+      <!-- Card 4 -->
+      <div class="card-hover">
+        <div class="relative bg-creamLight rounded-sm overflow-hidden aspect-[3/4]">
+          <img src="03-jhumka-on-marigold.jpg" alt="Genda Jhumka" class="w-full h-full object-cover" />
+          <span class="heart">♡</span>
+        </div>
+        <h3 class="font-serif text-xl mt-4">Genda Jhumka</h3>
+        <p class="text-xs text-muted mt-1 tracking-wide">Gold &amp; Meenakari</p>
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <a href="#shop" class="btn-pill">View All Collections
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CENTURY ============ -->
+<section class="py-16 md:py-24">
+  <div class="max-w-[1400px] mx-auto px-8">
+    <div class="text-center mb-14">
+      <div class="eyebrow">Best Sellers</div>
+      <h2 class="font-serif text-5xl md:text-6xl mt-3 font-medium tracking-tight leading-[1.05]">
+        A century of quiet<br />obsession <span class="font-serif-i">with light.</span>
+      </h2>
+      <p class="text-sm text-muted max-w-md mx-auto mt-5 leading-relaxed">
+        Founded in Jaipur in 1908, our atelier still sets every stone by hand.
+        Each piece is a study in restraint — the last unnecessary line always removed.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+      <!-- Big card -->
+      <div class="md:col-span-2 relative rounded-sm overflow-hidden aspect-[16/10]">
+        <img src="01-hero-ring-red-silk-swirl.jpg" alt="Polki solitaire on silk" class="w-full h-full object-cover" />
+      </div>
+      <!-- Two side cards -->
+      <div class="space-y-6">
+        <div class="card-hover">
+          <div class="relative bg-creamLight rounded-sm overflow-hidden aspect-[4/5]">
+            <img src="04-ruby-necklace-on-lotus.jpg" alt="Ligne d'Or Necklace" class="w-full h-full object-cover" />
+            <span class="heart">♡</span>
+          </div>
+          <div class="flex items-baseline justify-between mt-3">
+            <div>
+              <h3 class="font-serif text-lg">Kamal Ruby Necklace</h3>
+              <p class="text-[11px] text-muted mt-0.5">22K Gold · Handwoven</p>
+            </div>
+            <div class="text-sm font-medium">₹1,85,000</div>
+          </div>
+        </div>
+        <div class="card-hover">
+          <div class="relative bg-creamLight rounded-sm overflow-hidden aspect-[4/5]">
+            <img src="05-bangle-on-jasmine.jpg" alt="Mogra Diamond Bangle" class="w-full h-full object-cover" />
+            <span class="heart">♡</span>
+          </div>
+          <div class="flex items-baseline justify-between mt-3">
+            <div>
+              <h3 class="font-serif text-lg">Mogra Diamond Bangle</h3>
+              <p class="text-[11px] text-muted mt-0.5">22K Gold · Uncut Polki</p>
+            </div>
+            <div class="text-sm font-medium">₹1,28,000</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 text-center">
+      <a href="#about" class="btn-pill">The House
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COVETED ============ -->
+<section id="shop" class="py-16 md:py-24">
+  <div class="max-w-[1400px] mx-auto px-8 text-center">
+    <div class="eyebrow">Best Sellers</div>
+    <h2 class="font-serif text-5xl md:text-6xl mt-3 font-medium tracking-tight">
+      Coveted by <span class="font-serif-i">our clientele.</span>
+    </h2>
+
+    <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+      <div class="card-hover">
+        <div class="relative bg-creamLight rounded-sm overflow-hidden aspect-[3/4]">
+          <img src="05-bangle-on-jasmine.jpg" alt="Mogra Diamond Bangle" class="w-full h-full object-cover" />
+          <span class="heart">♡</span>
+        </div>
+        <div class="flex items-baseline justify-between mt-3">
+          <div>
+            <h3 class="font-serif text-lg">Mogra Bangle</h3>
+            <p class="text-[11px] text-muted mt-0.5">22K Gold · Uncut Polki</p>
+          </div>
+          <div class="text-sm font-medium">₹1,28,000</div>
+        </div>
+      </div>
+      <div class="card-hover">
+        <div class="relative bg-creamLight rounded-sm overflow-hidden aspect-[3/4]">
+          <img src="06-emerald-ring-on-hibiscus.jpg" alt="Panna Kundan Ring" class="w-full h-full object-cover" />
+          <span class="heart">♡</span>
+        </div>
+        <div class="flex items-baseline justify-between mt-3">
+          <div>
+            <h3 class="font-serif text-lg">Panna Kundan Ring</h3>
+            <p class="text-[11px] text-muted mt-0.5">22K Gold · Emerald</p>
+          </div>
+          <div class="text-sm font-medium">₹95,000</div>
+        </div>
+      </div>
+      <div class="card-hover">
+        <div class="relative bg-creamLight rounded-sm overflow-hidden aspect-[3/4]">
+          <img src="04-ruby-necklace-on-lotus.jpg" alt="Kamal Ruby Necklace" class="w-full h-full object-cover" />
+          <span class="heart">♡</span>
+        </div>
+        <div class="flex items-baseline justify-between mt-3">
+          <div>
+            <h3 class="font-serif text-lg">Kamal Necklace</h3>
+            <p class="text-[11px] text-muted mt-0.5">22K Gold · Handwoven</p>
+          </div>
+          <div class="text-sm font-medium">₹1,85,000</div>
+        </div>
+      </div>
+      <div class="card-hover">
+        <div class="relative bg-creamLight rounded-sm overflow-hidden aspect-[3/4]">
+          <img src="03-jhumka-on-marigold.jpg" alt="Genda Jhumka" class="w-full h-full object-cover" />
+          <span class="heart">♡</span>
+        </div>
+        <div class="flex items-baseline justify-between mt-3">
+          <div>
+            <h3 class="font-serif text-lg">Genda Jhumka</h3>
+            <p class="text-[11px] text-muted mt-0.5">22K Gold · Meenakari</p>
+          </div>
+          <div class="text-sm font-medium">₹58,000</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12">
+      <a href="#shop" class="btn-pill">View All Collections
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM ============ -->
+<section class="py-16 md:py-24">
+  <div class="max-w-[1400px] mx-auto px-8 text-center">
+    <div class="eyebrow">Follow the House</div>
+    <h2 class="font-serif text-5xl md:text-6xl mt-3 font-medium tracking-tight">@aaranya</h2>
+
+    <div class="mt-12 grid grid-cols-3 md:grid-cols-6 gap-2">
+      <div class="aspect-[2/3] overflow-hidden"><img src="instagram-grid/1-shoulder-lily-drop-earring.jpg" class="w-full h-full object-cover card-hover" alt=""/></div>
+      <div class="aspect-[2/3] overflow-hidden"><img src="instagram-grid/2-jasmine-gold-oval-pendant.jpg" class="w-full h-full object-cover card-hover" alt=""/></div>
+      <div class="aspect-[2/3] overflow-hidden"><img src="instagram-grid/3-model-lily-face-ring.jpg" class="w-full h-full object-cover card-hover" alt=""/></div>
+      <div class="aspect-[2/3] overflow-hidden"><img src="instagram-grid/4-face-eternity-band.jpg" class="w-full h-full object-cover card-hover" alt=""/></div>
+      <div class="aspect-[2/3] overflow-hidden"><img src="instagram-grid/5-side-profile-cascade-earring.jpg" class="w-full h-full object-cover card-hover" alt=""/></div>
+      <div class="aspect-[2/3] overflow-hidden"><img src="instagram-grid/6-jasmine-gold-earring-ladybug.jpg" class="w-full h-full object-cover card-hover" alt=""/></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="py-16 md:py-24">
+  <div class="max-w-[1400px] mx-auto px-8 text-center">
+    <div class="eyebrow">In Their Words</div>
+    <h2 class="font-serif text-5xl md:text-6xl mt-3 font-medium tracking-tight">
+      From our <span class="font-serif-i">customers</span>
+    </h2>
+
+    <div class="mt-14 grid grid-cols-1 md:grid-cols-4 gap-8 text-left">
+      <div>
+        <div class="text-4xl font-serif text-forest leading-none">&ldquo;</div>
+        <p class="mt-3 text-sm leading-relaxed text-ink/85">
+          Every piece feels like a whisper of the old couture houses. The finish is beyond reproach.
+        </p>
+        <div class="mt-6">
+          <p class="text-sm font-medium">Isabela M.</p>
+          <p class="text-[11px] text-muted mt-0.5">Milan</p>
+        </div>
+      </div>
+      <div>
+        <div class="text-4xl font-serif text-forest leading-none">&ldquo;</div>
+        <p class="mt-3 text-sm leading-relaxed text-ink/85">
+          My solitaire arrived in a velvet box that already felt like an heirloom. The stone is extraordinary.
+        </p>
+        <div class="mt-6">
+          <p class="text-sm font-medium">Camille R.</p>
+          <p class="text-[11px] text-muted mt-0.5">Paris</p>
+        </div>
+      </div>
+      <div>
+        <div class="text-4xl font-serif text-forest leading-none">&ldquo;</div>
+        <p class="mt-3 text-sm leading-relaxed text-ink/85">
+          The atelier answered every question personally. Rare, and quite lovely.
+        </p>
+        <div class="mt-6">
+          <p class="text-sm font-medium">Sofia A.</p>
+          <p class="text-[11px] text-muted mt-0.5">New York</p>
+        </div>
+      </div>
+      <div>
+        <div class="text-4xl font-serif text-forest leading-none">&ldquo;</div>
+        <p class="mt-3 text-sm leading-relaxed text-ink/85">
+          Every stone has been chosen with such intention. It reads on the finger.
+        </p>
+        <div class="mt-6">
+          <p class="text-sm font-medium">Ananya K.</p>
+          <p class="text-[11px] text-muted mt-0.5">Mumbai</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10 flex justify-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-forest"></span>
+      <span class="w-2 h-2 rounded-full bg-ink/20"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="py-16 md:py-24">
+  <div class="max-w-[1400px] mx-auto px-8">
+    <div class="relative rounded-sm overflow-hidden">
+      <img src="01-hero-ring-red-silk-swirl.jpg" alt="Silk swirl" class="w-full h-[440px] object-cover" />
+      <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/20 to-transparent"></div>
+      <div class="absolute inset-0 flex items-end">
+        <div class="w-full max-w-lg px-10 md:px-16 pb-14 text-cream">
+          <h3 class="font-serif text-4xl md:text-5xl font-medium leading-[1.1]">
+            Letters from the <span class="font-serif-i">atelier.</span>
+          </h3>
+          <p class="text-sm text-cream/85 mt-3 max-w-sm">
+            Private previews, new pieces, and invitations to our salons.
+          </p>
+          <form class="mt-6 flex flex-wrap items-center gap-3 max-w-md" onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you ✓';">
+            <input type="email" required placeholder="Your email address" class="flex-1 min-w-[220px] px-5 py-3 rounded-full text-sm text-ink bg-cream/95 placeholder:text-muted focus:outline-none" />
+            <button type="submit" class="btn-pill">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer id="contact" class="pt-16 pb-10 border-t border-black/5 mt-8">
+  <div class="max-w-[1400px] mx-auto px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+      <div>
+        <div class="font-serif text-2xl tracking-[0.35em] font-medium">AARANYA</div>
+        <p class="text-xs text-muted mt-4 leading-relaxed max-w-xs">
+          Fine jewellery maison. Founded in Jaipur, 22K &amp; polki diamond, set by hand.
+        </p>
+        <div class="mt-6 space-y-1.5 text-xs">
+          <p class="text-muted">Social Links</p>
+          <a class="block hover:opacity-70" href="#">Instagram</a>
+          <a class="block hover:opacity-70" href="#">Pinterest</a>
+          <a class="block hover:opacity-70" href="#">YouTube</a>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs text-muted mb-3">Shop</p>
+        <ul class="space-y-1.5 text-sm">
+          <li><a class="hover:opacity-70" href="#">Diamond</a></li>
+          <li><a class="hover:opacity-70" href="#">Gold</a></li>
+          <li><a class="hover:opacity-70" href="#">Wedding</a></li>
+          <li><a class="hover:opacity-70" href="#">New Arrivals</a></li>
+          <li><a class="hover:opacity-70" href="#">Gift Cards</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-xs text-muted mb-3">Client Services</p>
+        <ul class="space-y-1.5 text-sm">
+          <li><a class="hover:opacity-70" href="#">Contact</a></li>
+          <li><a class="hover:opacity-70" href="#">Appointments</a></li>
+          <li><a class="hover:opacity-70" href="#">Sizing Guide</a></li>
+          <li><a class="hover:opacity-70" href="#">Care &amp; Repair</a></li>
+          <li><a class="hover:opacity-70" href="#">Shipping</a></li>
+        </ul>
+        <p class="text-xs text-muted mt-8 mb-3">Legal</p>
+        <ul class="space-y-1.5 text-sm">
+          <li><a class="hover:opacity-70" href="#">Terms</a></li>
+          <li><a class="hover:opacity-70" href="#">Privacy</a></li>
+          <li><a class="hover:opacity-70" href="#">Cookies</a></li>
+          <li><a class="hover:opacity-70" href="#">Accessibility</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-xs text-muted mb-3">The House</p>
+        <ul class="space-y-1.5 text-sm">
+          <li><a class="hover:opacity-70" href="#">Our Story</a></li>
+          <li><a class="hover:opacity-70" href="#">Craftsmanship</a></li>
+          <li><a class="hover:opacity-70" href="#">Journal</a></li>
+          <li><a class="hover:opacity-70" href="#">Boutiques</a></li>
+          <li><a class="hover:opacity-70" href="#">Careers</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 pt-6 border-t border-black/5 flex flex-wrap items-center justify-between gap-4">
+      <p class="text-xs text-muted">© MMXXVI AARANYA Maison Jaipur — India</p>
+      <div class="text-xs text-muted">Hand-set in Jaipur, delivered worldwide</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
