@@ -5,7 +5,7 @@ Last updated: 2026-08-15 · Latest commit: `53eb5ae`
 This doc is the single source of truth for picking the build back up from
 another machine (mobile Claude Code, another laptop, whatever). Read this
 top-to-bottom before dispatching any new agent — it prevents duplicate work
-and secret leaks.
+and secret leaks
 
 Companion docs (all in repo root):
 - `DESIGN_SYSTEM.md` — tokens, patterns, class strings from `index.html`

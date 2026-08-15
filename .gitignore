@@ -20,6 +20,8 @@ out/
 build/
 dist/
 backend/dist/
+tsconfig.tsbuildinfo
+*.tsbuildinfo
 
 # testing
 coverage/

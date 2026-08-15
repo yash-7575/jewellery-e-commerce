@@ -1,10 +1,14 @@
 import type {
+  Address,
   Category,
   Gemstone,
   Metal,
+  Order,
   Product,
 } from "@/components/types";
+import type { CartItem } from "./cart";
 
+// Set NEXT_PUBLIC_API_BASE_URL in .env to hit the live API.
 const API = process.env.NEXT_PUBLIC_API_BASE_URL || "";
 const REVALIDATE = 60;
 const FALLBACK_IMAGE =
@@ -325,4 +329,118 @@ export async function searchProducts(q: string): Promise<Product[]> {
     `/v1/search?q=${encodeURIComponent(term)}`,
   );
   return (data.items ?? []).map(mapProduct);
+}
+
+export const AUTH_STORAGE_KEY = "aaranya_access_token";
+
+export function getAccessToken(): string | null {
+  if (typeof window === "undefined") return null;
+  try {
+    return window.localStorage.getItem(AUTH_STORAGE_KEY);
+  } catch {
+    return null;
+  }
+}
+
+const authHeaders = (token: string): Record<string, string> => ({
+  "Content-Type": "application/json",
+  Authorization: `Bearer ${token}`,
+});
+
+const postJson = async <T>(path: string, body: unknown, token: string): Promise<T> => {
+  const response = await fetch(`${API}${path}`, {
+    method: "POST",
+    headers: authHeaders(token),
+    body: JSON.stringify(body),
+    cache: "no-store",
+  });
+  if (!response.ok) {
+    throw new Error(`AARANYA API ${path} responded ${response.status}`);
+  }
+  return (await response.json()) as T;
+};
+
+export interface CreateOrderBody {
+  items: CartItem[];
+  shippingAddress: Address;
+  email: string;
+}
+
+export async function createOrder(body: CreateOrderBody, token?: string): Promise<Order> {
+  const accessToken = token ?? getAccessToken();
+  if (!accessToken) throw new Error("Sign in required to place an order.");
+  return postJson<Order>("/v1/orders", body, accessToken);
+}
+
+export interface RazorpayOrder {
+  razorpay_order_id: string;
+  amount: number;
+  currency: string;
+  key_id: string;
+}
+
+interface ApiRazorpayOrder {
+  razorpay_order_id?: string;
+  razorpayOrderId?: string;
+  amount?: number;
+  amountPaise?: number;
+  currency?: string;
+  key_id?: string;
+  keyId?: string;
+}
+
+export async function createRazorpayOrder(orderId: string, token?: string): Promise<RazorpayOrder> {
+  const accessToken = token ?? getAccessToken();
+  if (!accessToken) throw new Error("Sign in required to start payment.");
+  const raw = await postJson<ApiRazorpayOrder>("/v1/payments/create-order", { orderId }, accessToken);
+  const razorpayOrderId = raw.razorpay_order_id ?? raw.razorpayOrderId;
+  const keyId = raw.key_id ?? raw.keyId;
+  if (!razorpayOrderId || !keyId) {
+    throw new Error("Payment gateway did not return a valid order.");
+  }
+  return {
+    razorpay_order_id: razorpayOrderId,
+    amount: raw.amount ?? Math.round((raw.amountPaise ?? 0) / 100),
+    currency: raw.currency ?? "INR",
+    key_id: keyId,
+  };
+}
+
+export interface VerifyRazorpayPaymentBody {
+  razorpay_order_id: string;
+  razorpay_payment_id: string;
+  razorpay_signature: string;
+  orderId: string;
+}
+
+export async function verifyRazorpayPayment(
+  body: VerifyRazorpayPaymentBody,
+  token?: string,
+): Promise<{ paid: boolean }> {
+  const accessToken = token ?? getAccessToken();
+  if (!accessToken) throw new Error("Sign in required to verify payment.");
+  const result = await postJson<{ paid?: boolean; status?: string }>(
+    "/v1/payments/verify",
+    {
+      razorpay_order_id: body.razorpay_order_id,
+      razorpay_payment_id: body.razorpay_payment_id,
+      razorpay_signature: body.razorpay_signature,
+      orderId: body.orderId,
+    },
+    accessToken,
+  );
+  return { paid: result.paid ?? result.status === "PAID" };
+}
+
+export async function getOrderById(id: string, token?: string): Promise<Order> {
+  const accessToken = token ?? getAccessToken();
+  if (!accessToken) throw new Error("Sign in required to view this order.");
+  const response = await fetch(`${API}/v1/orders/${encodeURIComponent(id)}`, {
+    headers: authHeaders(accessToken),
+    cache: "no-store",
+  });
+  if (!response.ok) {
+    throw new Error(`AARANYA API /v1/orders/${id} responded ${response.status}`);
+  }
+  return (await response.json()) as Order;
 }
