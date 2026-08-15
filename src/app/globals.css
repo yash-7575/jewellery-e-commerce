@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f5edd6;
+  color: #1a1a1a;
+}
+
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+.font-sans {
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+.font-serif-i {
+  font-family: var(--font-serif), 'Playfair Display', serif;
+  font-style: italic;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+  font-weight: 500;
+}
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: #0d5545;
+  color: #f5edd6;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+  transition: background 0.2s ease;
+}
+
+.btn-pill:hover {
+  background: #0a4336;
+}
+
+.heart {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 999px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 13px;
+  color: #1a1a1a;
+  cursor: pointer;
+}
+
+.divider-scallop {
+  height: 32px;
+  background-image: radial-gradient(circle at 16px 0, #f5edd6 16px, transparent 17px);
+  background-size: 32px 32px;
+  background-repeat: repeat-x;
+}
+
+.card-hover {
+  transition: transform 0.35s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+}
